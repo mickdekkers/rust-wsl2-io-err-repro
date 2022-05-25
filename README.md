@@ -56,6 +56,8 @@ $ cargo build && ./target/x86_64-unknown-linux-gnu/debug/rust_wsl2_io_err_repro 
 
 Try changing the amount of characters printed per line. It looks like the error occurs more often the longer the lines are.
 
+I'm not sure what's causing the error, but the code that prints it and aborts the process is found here https://github.com/rust-lang/rust/blob/9fed13030c2a2ebd79bfb1fd8be4f768cbe8c9d9/library/std/src/sys/windows/handle.rs#L255-L258
+
 ## Background
 
 I normally use VS Code + WSL (2) for development on Windows. In this case I was working on a CLI app for Windows, so I compiled it using the `x86_64-pc-windows-gnu` target. I had the build/run command set to pipe the output to an `out.log` file for convenience from the beginning but started noticing the error intermittently and more regularly as I kept working on the project. This repo provides a minimal reproduction of the error.
